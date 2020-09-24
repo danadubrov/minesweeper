@@ -143,13 +143,22 @@ function cellClicked(elCell) {
     else if (cell.isMine) {
         gGame.lives--;
         displayLives();
-        renderCell(cellCoord);
-        console.log(gGame.lives + ' lives left');
-        gGame.markedCount++;
+        // renderCell(cellCoord);
+        // console.log(gGame.lives + ' lives left');
+        // gGame.markedCount++;
+        elCell.innerText = MINE;
+        elCell.classList.add('mine');
+        elCell.classList.remove('cell');
+        setTimeout(function(){
+            elCell.innerText = EMPTY;
+            elCell.classList.add('cell');
+            elCell.classList.remove('mine');
+        },500)
+
     }
     else {
-        renderCell(cellCoord);
-        if (cell.minesAroundCount === 0) revealNegs(cellCoord);
+        expandCell(cellCoord);
+        if (cell.minesAroundCount === 0) expandShown(cellCoord);
     }
     checkGameOver();
 }
@@ -213,7 +222,7 @@ function revealMines() {
     }
 }
 
-function revealNegs(pos) {
+function expandShown(pos) {
     for (var i = pos.i - 1; i <= pos.i + 1; i++) {
         if (i < 0 || i >= gBoard.length) continue;
         for (var j = pos.j - 1; j <= pos.j + 1; j++) {
@@ -221,13 +230,13 @@ function revealNegs(pos) {
             if (i === pos.i && j === pos.j) continue;
             var currPos = { i: i, j: j };
             var cell = gBoard[i][j];
-            if (!cell.isShown && !cell.isMarked) renderCell(currPos);
+            if (!cell.isShown && !cell.isMarked) expandCell(currPos);
         }
     }
     return;
 }
 
-function renderCell(pos) {
+function expandCell(pos) {
     var cell = gBoard[pos.i][pos.j];
     var elCell = document.querySelector('#cell-' + pos.i + '-' + pos.j);
 
