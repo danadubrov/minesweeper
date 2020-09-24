@@ -1,19 +1,20 @@
 body{
     text-align: center;
+    font-family: sans-serif;
 }
-
 .cell {
     width:40px; 
     height:40px;
     text-align: center;
     background-color:#f77878;
     margin: 0;
+
 }
 .cell:hover{
     background-color:#f3c3b8;
 }
 table{
-    margin: auto;
+ margin: auto;
 }
 
 .clicked{
@@ -26,6 +27,9 @@ table{
     font-weight: bold;
     font-size: 30px;
 }
+.safe{
+    background-color:#ff002b;
+}
 
 .mine{
     width:40px; 
@@ -34,7 +38,11 @@ table{
     margin: 0;
     background-color:#ffae00;
 }
-.timer{
+
+.hint{
+    background-color:#f3c3b8;
+}
+.box{
     margin: auto;
     border-radius: 25px;
     font-size: 50px;
@@ -43,10 +51,12 @@ table{
     width: 200px;
     background-color:#ffae00;
     color: white;
-    margin-bottom: 20px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .title{
-    font-family: sans-serif;
+    text-align: center;
     font-size: 50px;
     color: #ffa691;
 }
@@ -55,10 +65,73 @@ table{
     color: #ff002b;
 }
 
-.message{
+/* .message{
     margin-top:20px ;
     font-family: sans-serif;
     font-size: 40px;
     font-weight: bold;
     color: #f77878;
+} */
+
+.icon{
+ display: inline-block;
+margin: auto;
+text-align: center;
+line-height: 80px;
+width: 80px;
+height: 80px;
+font-size: 40px;
+background-color: #ffa691;
+border-radius: 50%;
+-webkit-transition: -webkit-transform .8s ease-in-out;
+transition:transform .8s ease-in-out;
+}
+
+.icon:hover{
+    cursor: pointer;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+.levels{ 
+color: #864800ed;
+font-size: 20px;
+margin-bottom: 20px;
+font-weight: bold;
+}
+
+.bullet{
+    font-size: 35px;
+}
+.bullet:hover{
+    color:#ffae00;
+    cursor: pointer;
+}
+
+.btn{
+    margin: 20px;
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+    padding: 5px;
+    width: 230px;
+    background-color: #ffa691;
+    color:#ff002b;
+    font-weight: bold;
+    padding: 10px;
+    display:inline-block;
+}
+
+.btn:hover{
+    background-color:#f3c3b8;
+    cursor: pointer;
+}
+
+.btn-on{
+    background-color:#f3c3b8;
+    color:#ffae00;
+}
+
+.btn .bullets{
+    color:#ffffff;
 }
