@@ -12,19 +12,26 @@
     <h1 class="title">MINE<span class="sweeper">SWEEPER</span></h1>
     <div class="box lives">♥ ♥</div>
     <div class="icon" onclick="init()">😸</div>
-    <div class="box timer">0:0</div>
+    <div class="box timer">0:00</div>
     <div>
-        <span class="btn" onclick="showSafeClick()">SafeClick <span class="bullets"></span> </span>
-        <span class="btn hint"onclick="hintClicked()">HINT<span class="bullets"></span></span>
+        <span class="btn manual" onclick="manualModeClicked()">Place Mines</span>
+        <span class="btn" onclick="showSafeClick()">SafeClick <span class="click-count"></span> </span>
+        <span class="btn hint" onclick="hintClicked()">HINT<span class="hint-count"></span></span>
     </div>
-    <div class="levels">
-        <span id="level1" class="bullet" onclick="chooseLevel(this)">⦿</span> <span> BEGINNER
-        </span><span class="bullet" id="level2" onclick="chooseLevel(this)">⦿</span><span> MEDIUM </span><span
-            class="bullet" id="level3" onclick="chooseLevel(this)">⦿</span><span> EXPERT </span>
+    <span class="bold">
+        <input type="radio" name="level" id="beginner" checked onclick="chooseLevel(4,2)"></input>
+        <label for="beginner">BEGINNER</label>
+        <input type="radio" name="level"  id="medium" onclick="chooseLevel(8,12)"></input>
+        <label for="medium">MEDIUM</label>
+        <input type="radio" name="level" id="expert" onclick="chooseLevel(12,30)"></input>
+        <label for="expert">EXPERT</label>
+        
     </div>
     <table>
         <tbody class="board"></tbody>
     </table>
+    <div class="bold">BEST SCORE FOR THIS LEVEL: <span class="score"> </span></div>
+    <script src="js/config.js"></script>
     <script src="js/main.js"></script>
 </body>
 
